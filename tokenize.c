@@ -1,5 +1,9 @@
 #include "shell.h"
-
+/**
+ * tokenizer - splits the input into pieces
+ * @line: input
+ * Return: 0 or the command to be executed
+*/
 char **tokenizer(char *line)
 {
 	char *token = NULL;
@@ -23,7 +27,7 @@ char **tokenizer(char *line)
 		argc++;
 		token = strtok(NULL, DELIM);
 	}
-	free(line_copy	), line_copy = NULL;
+	free(line_copy), line_copy = NULL;
 	commands = malloc(sizeof(char *) * (argc + 1));
 	if (!commands)
 	{
