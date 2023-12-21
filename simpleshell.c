@@ -32,6 +32,9 @@ int main(int ac, char **argv)
 		  }
 		  free(input);*/
 
-		status = execute(input, argv, idx);
+		if (is_built_in(input[0])==1)
+			handle_built_in(input,&status);
+		else
+			status = execute(input, argv, idx);
 	}
 }
