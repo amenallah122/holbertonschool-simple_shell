@@ -1,41 +1,49 @@
 #include "shell.h"
 char *_getpath(char *input)
 {
-	char *path_env, *full_cmd, *dir;
-	int i;
+	char *env, *path, *command;
 	struct stat st;
+    int i;
 
-	for (i = 0; input[i]; i++)
+    for (i = 0; input[i]; i++)
 	{
 		if (input[i] == '/')
 		{
 			if (stat(input, &st) == 0)
-				return (strdup(input));
-			return (NULL);
+				return strdup(input);
+
+			return NULL;
 		}
 	}
 
-	path_env = _getenv("PATH");
-	dir = strtok(path_env, ":");
+	env = _getenv("PATH");
+	if (env == NULL)
+		return NULL;
 
-	while (dir)
+	path = strtok(env, ":");
+	while (path)
 	{
-		full_cmd = malloc(strlen(dir) + strlen(input) + 2);
-		if (full_cmd)
+		command = malloc(strlen(path) + strlen(input) + 2);
+		if (command != NULL)
 		{
-			strcpy(full_cmd, dir);
-			strcat(full_cmd, "/");
-			strcat(full_cmd, input);
-			if (stat(full_cmd, &st) == 0)
+			snprintf(command, strlen(path) + strlen(input) + 2, "%s/%s", path, input);
+			if (stat(command, &st) == 0)
 			{
-				free(path_env);
-				return (full_cmd);
+				free(env);
+				return (command);
 			}
-			free(full_cmd), full_cmd = NULL;
 
-			dir = strtok(NULL, ":");
+			free(command);
+
+			path = strtok(NULL, ":");
+		}
+		else
+		{
+			free(env);
+			return NULL;
 		}
 	}
-	free(path_env);
-	return (NULL);
+
+	free(env);
+	return NULL;
 }
