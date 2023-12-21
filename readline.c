@@ -1,5 +1,8 @@
 #include "shell.h"
-
+/**
+ * read_line - function that gets the environment
+ * Return: line
+*/
 char *read_line(void)
 {
 	char *line = NULL;
