@@ -4,7 +4,8 @@ int main(int ac, char **argv)
 {
 	char *line = NULL;
 	char **input = NULL;
-	int status=0;
+	int status = 0;
+	int idx = 0;
 	/*int i ;*/
 	(void)ac;
 
@@ -19,19 +20,18 @@ int main(int ac, char **argv)
 			}
 			return (status);
 		}
-		
-        input = tokenizer(line);  
-        if (input == NULL)
-            continue;
+		idx++;
+		input = tokenizer(line);
+		if (input == NULL)
+			continue;
 
-     /*for ( i = 0; input[i]; i++)
-	   {
-		printf("%s\n", input[i]);
-		free(input[i]), input[i]= NULL;
-	   }
-	   free(input);*/
+		/*for ( i = 0; input[i]; i++)
+		  {
+		   printf("%s\n", input[i]);
+		   free(input[i]), input[i]= NULL;
+		  }
+		  free(input);*/
 
-	   status = execute(input, argv);
-	   
-    }
+		status = execute(input, argv, idx);
+	}
 }
