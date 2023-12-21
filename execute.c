@@ -1,24 +1,33 @@
 #include "shell.h"
-
-int execute(char **input, char**argv)
+int execute(char **input, char **argv)
 {
-    pid_t child;
-    int status;
+	pid_t child;
+	int status;
+	char *command;
 
-    child = fork();
-    if (child == 0)
-    {
-        if (execve(input[0], input, environ) == -1)
-        {
-            perror(argv[0]);
-            freearray(input);
-            exit(0);
-        }
-    }
-    else 
-    {
-        waitpid(child, &status,0);
-        freearray(input);
-    }
-    return(WEXITSTATUS(status));
+	command = _getpath(input[0]);
+	if (!command)
+	{
+		fprintf(stderr, "%s:%s: not found\n", argv[0], input[0]);
+		freearray(input);
+		return (127);
+	}
+	child = fork();
+	if (child == 0)
+	{
+		if (execve(command, input, environ) == -1)
+		{
+			perror(argv[0]);
+			freearray(input);
+			free(command);
+			exit(100);
+		}
+	}
+	else
+	{
+		waitpid(child, &status, 0);
+		freearray(input);
+		free(command);
+	}
+	return (WEXITSTATUS(status));
 }
