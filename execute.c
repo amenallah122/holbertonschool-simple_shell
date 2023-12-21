@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 int execute(char **input, char**argv)
 {
