@@ -16,7 +16,7 @@ extern char **environ;
 char *read_line(void);
 char **tokenizer(char *line);
 void freearray(char **array);
-int execute(char **input, char**argv);
+int execute(char **input, char **argv, int idx);
 char *_getpath(char *input);
 char *_getenv(char *variable);
 
