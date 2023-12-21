@@ -1,10 +1,15 @@
 #include "shell.h"
-
+/**
+ * is_built_in - ...
+ * @input: input
+ * Return: 0
+*/
 int is_built_in(char *input)
 
 {
 	char *built[] = {"exit", "env", NULL};
 	int i;
+
 	for (i = 0; built[i]; i++)
 	{
 		if (strcmp(input, built[i]) == 0)
@@ -14,9 +19,17 @@ int is_built_in(char *input)
 	}
 	return (0);
 }
+
+/**
+ * handle_built_in - ...
+ * @input: input
+ * @status: status
+ * Return: 0
+*/
 void handle_built_in(char **input, int *status)
 {
 	int i;
+
 	if (strcmp(input[0], "exit") == 0)
 	{
 		freearray(input);
