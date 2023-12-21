@@ -51,3 +51,4 @@ https://github.com/amenallah122/holbertonschool-simple_shell.git
 
 
 # flowchart
+![387513799_3540172309565679_1158508219524781890_n](https://github.com/amenallah122/holbertonschool-simple_shell/assets/146720071/862f883d-80cc-4aa6-ae97-d6303659efdb)
