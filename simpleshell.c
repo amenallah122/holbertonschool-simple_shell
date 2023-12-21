@@ -6,7 +6,6 @@ int main(int ac, char **argv)
 	char **input = NULL;
 	int status = 0;
 	int idx = 0;
-	/*int i ;*/
 	(void)ac;
 
 	while (1)
