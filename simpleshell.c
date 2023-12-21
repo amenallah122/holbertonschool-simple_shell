@@ -25,13 +25,6 @@ int main(int ac, char **argv)
 		if (input == NULL)
 			continue;
 
-		/*for ( i = 0; input[i]; i++)
-		  {
-		   printf("%s\n", input[i]);
-		   free(input[i]), input[i]= NULL;
-		  }
-		  free(input);*/
-
 		if (is_built_in(input[0])==1)
 			handle_built_in(input,&status);
 		else
