@@ -19,6 +19,8 @@ void freearray(char **array);
 int execute(char **input, char **argv, int idx);
 char *_getpath(char *input);
 char *_getenv(char *variable);
+int is_built_in(char *input);
+void handle_built_in(char **input, int *status);
 
 
 #endif
