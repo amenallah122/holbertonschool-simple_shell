@@ -1,5 +1,10 @@
 #include "shell.h"
-
+/**
+ * main - entry point
+ * @ac: ..
+ * @argv: argument vector
+ * Return: 0
+*/
 int main(int ac, char **argv)
 {
 	char *line = NULL;
@@ -24,8 +29,8 @@ int main(int ac, char **argv)
 		if (input == NULL)
 			continue;
 
-		if (is_built_in(input[0])==1)
-			handle_built_in(input,&status);
+		if (is_built_in(input[0]) == 1)
+			handle_built_in(input, &status);
 		else
 			status = execute(input, argv, idx);
 	}
