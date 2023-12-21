@@ -46,7 +46,6 @@ https://github.com/amenallah122/holbertonschool-simple_shell.git
    - strtok
    - waitpid
 ```
-## Conclusion
 
 
 # flowchart
