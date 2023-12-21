@@ -36,12 +36,11 @@ https://github.com/amenallah122/holbertonschool-simple_shell.git
    - execve
    - fork
    - free
-   - getenv
    - getline
    - isatty
    - malloc
    - perror
-   - printf
+   - snprintf
    - strcmp
    - strdup
    - strtok
