@@ -1,0 +1,28 @@
+.TH man 1 "man_1_simple_shell"
+.SH NAME
+man_1_simple_shell
+.SH SYNOPSIS
+...
+.SH DESCRIPTION
+Shell or command interpreter is a computer program that provides a user interface to access to the operating system services.
+Bash is an sh-compatible command language interpreter that executes commands read from the standard input or from a file.
+.SH SOME OF THE EXECUTABLE COMMANDS IN THIS SHELL ARE:
+cp: copy a file to another place.
+
+rm: Delete files
+
+ls: Shows the contents of a folder.
+
+mkdir: Create a folder.
+
+rmdir: Delete a folder
+
+...
+
+.SH Exit Status
+  0 if the operation was successful.
+  1 if there was an error.
+
+.SH AUTHOR
+Amen Allah Mrabet
+Amen Allah Garmai
