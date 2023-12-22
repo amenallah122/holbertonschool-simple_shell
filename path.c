@@ -16,15 +16,12 @@ char *_getpath(char *input)
 		{
 			if (stat(input, &st) == 0)
 				return (strdup(input));
-
 			return (NULL);
 		}
 	}
-
 	env = _getenv("PATH");
 	if (env == (NULL))
 		return (NULL);
-
 	path = strtok(env, ":");
 	while (path)
 	{
@@ -37,9 +34,7 @@ char *_getpath(char *input)
 				free(env);
 				return (command);
 			}
-
 			free(command);
-
 			path = strtok((NULL), ":");
 		}
 		else
@@ -48,7 +43,6 @@ char *_getpath(char *input)
 			return (NULL);
 		}
 	}
-
 	free(env);
 	return (NULL);
 }
